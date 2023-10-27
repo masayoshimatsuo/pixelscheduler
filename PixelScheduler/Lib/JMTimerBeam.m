@@ -50,6 +50,7 @@
 
 - (id) initWithDuration:(NSTimeInterval) duration
             orientation:(JMTimerBeamOrientations) orientation
+              allSpaces:(BOOL) allSpaces
               thickness:(NSInteger) thickness
                   color:(NSColor *) color
                event:(NSArray *) data
@@ -64,10 +65,11 @@
             _setting = [self.delegate getSettingData];
     }
     
-    return [self initWithDuration:duration orientation:orientation thickness:thickness color:color];
+    return [self initWithDuration:duration orientation:orientation allSpaces:allSpaces thickness:thickness color:color];
 }
 - (id) initWithDuration:(NSTimeInterval) duration
             orientation:(JMTimerBeamOrientations) orientation
+              allSpaces:(BOOL) allSpaces
               thickness:(NSInteger) thickness
                   color:(NSColor*) color
 {
@@ -100,6 +102,9 @@
                                                            defer:NO
                                                           screen:self.beamScreen];
         
+        if(allSpaces){
+            [window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorTransient]; [window setLevel:NSPopUpMenuWindowLevel];
+        }
         window.backgroundColor = self.color;
         window.alphaValue = 1.0f;
         [window setOpaque:NO];

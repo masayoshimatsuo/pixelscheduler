@@ -17,6 +17,7 @@
 @property(nonatomic)NSNumber  *upDate;
 @property(nonatomic)NSNumber  *enablePop;
 @property(nonatomic)NSNumber  *enableStartUp;
+@property(nonatomic)NSNumber  *enableAllSpaces;
 
 
 -(JMTimerBeamOrientations)getPos;

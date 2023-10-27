@@ -81,7 +81,7 @@
     }
 }
 
-- (void) showTimerBeam:(JMTimerBeamOrientations) orientation width:(NSInteger)width
+- (void) showTimerBeam:(JMTimerBeamOrientations) orientation width:(NSInteger)width  allSpaces:(BOOL)allSpaces
 {
     [self createStatus];
     
@@ -95,6 +95,7 @@
     
     self.timerBeam = [[JMTimerBeam alloc] initWithDuration:5 * 60
                                                orientation:orientation
+                                                 allSpaces: allSpaces
                                                  thickness:width
                                                      color:[NSColor clearColor]
                                                      event:allevents
@@ -132,7 +133,7 @@
 
     PreferencesWindowController *sharedController = [PreferencesWindowController sharedPreferencesWindowController:self];
     sharedController.apDel = self;
-    
+    [NSApp activateIgnoringOtherApps:YES];
     [sharedController showWindow:self];
 }
 
@@ -170,7 +171,7 @@
     if(_timerBeam){
         [self updateBar:[_setting getPos] width:[_setting getWidth]];
     }else{
-        [self showTimerBeam:[_setting getPos] width:[_setting getWidth]];
+        [self showTimerBeam:[_setting getPos] width:[_setting getWidth] allSpaces:[_setting.enableAllSpaces boolValue]];
     }
 }
 
