@@ -133,7 +133,7 @@
 
     PreferencesWindowController *sharedController = [PreferencesWindowController sharedPreferencesWindowController:self];
     sharedController.apDel = self;
-    
+    [NSApp activateIgnoringOtherApps:YES];
     [sharedController showWindow:self];
 }
 
