@@ -18,6 +18,7 @@
     [coder encodeObject:_upDate forKey:@"upDate"];
     [coder encodeObject:_enablePop forKey:@"enablePop"];
     [coder encodeObject:_enableStartUp forKey:@"enableAutoStartUP"];
+    [coder encodeObject:_enableAllSpaces forKey:@"enableAllSpaces"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -34,6 +35,8 @@
     
     _enableStartUp = [decoder decodeObjectForKey:@"enableAutoStartUP"];
     
+    _enableAllSpaces = [decoder decodeObjectForKey:@"enableAllSpaces"];
+
     return self;
 }
 
@@ -47,6 +50,7 @@
         copy->_upDate           = _upDate;
         copy->_enablePop        = _enablePop;
         copy->_enableStartUp    = _enableStartUp;
+        copy->_enableAllSpaces  = _enableAllSpaces;
     }
     
     return copy;

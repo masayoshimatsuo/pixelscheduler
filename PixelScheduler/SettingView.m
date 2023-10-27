@@ -12,6 +12,7 @@
 
 @property (weak) IBOutlet NSButton *checkEnablePop;
 @property (weak) IBOutlet NSButton *checkEnableStartUp;
+@property (weak) IBOutlet NSButton *checkEnableAllSpaces;
 @property (weak) IBOutlet NSButton *btnBarPosLeft;
 @property (weak) IBOutlet NSButton *btnBarPosBottom;
 @property (weak) IBOutlet NSButton *btnBarPosRight;
@@ -67,6 +68,7 @@
     
     [_eventUpdate setSelected:YES forSegment:[_setting.upDate integerValue]];
     [_checkEnablePop setState:[_setting.enablePop integerValue]];
+    [_checkEnableAllSpaces setState:[_setting.enableAllSpaces integerValue]];
     [_checkEnableStartUp setState:[_setting.enableStartUp integerValue]];
 }
 
@@ -110,6 +112,13 @@
     NSButton *btn = (NSButton*)sender;
     
     _setting.enableStartUp = [NSNumber numberWithInteger:btn.state];
+    [self saveSettingData];
+}
+
+- (IBAction)checkAllSpaces:(id)sender {
+    NSButton *btn = (NSButton*)sender;
+    
+    _setting.enableAllSpaces = [NSNumber numberWithInteger:btn.state];
     [self saveSettingData];
 }
 
