@@ -21,11 +21,13 @@ typedef NS_ENUM (NSUInteger, JMTimerBeamOrientations) {
 /// Init new timer beam with given duration, orientation, thichkness and color
 - (id) initWithDuration:(NSTimeInterval) duration
             orientation:(JMTimerBeamOrientations) orientation
+              allSpaces:(BOOL) allSpaces
               thickness:(NSInteger) thickness
                   color:(NSColor*) color;
 
 - (id) initWithDuration:(NSTimeInterval) duration
             orientation:(JMTimerBeamOrientations) orientation
+              allSpaces:(BOOL) allSpaces
               thickness:(NSInteger) thickness
                   color:(NSColor *) color
                event:(NSArray *) data
